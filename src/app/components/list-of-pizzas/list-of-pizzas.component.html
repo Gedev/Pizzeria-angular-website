@@ -1,0 +1,45 @@
+<h2>Sélectionnez vos pizzas :</h2>
+
+<p>{{pizzas.length}} produits trouvés</p>
+
+<div class="list-group list-group-horizontal">
+  <div class="row row-cols-1 row-cols-md-2">
+    <div *ngFor="let p of pizzas;
+           index as i;
+           count as count">
+      <div class="card mb-3">
+        <div class="row g-0">
+          <div class="col-md-8">
+            <img src="{{p.image}}" class="img-fluid rounded-start" alt="pizzas">
+            <h5 class="card-title"></h5>
+          </div>
+          <div class="col-md-4">
+            <div class="card-body">
+              <h5 class="card-title">{{p.name}}</h5>
+              <p class="card-text">{{p.desc}}</p>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">ID : {{p.id}}</li>
+                <li class="list-group-item">Prix : {{p.price | currency:'EUR'}}</li>
+              </ul>
+              <div class="card-footer">
+                <div class="row">
+                  <input type="number" min="1">
+                </div>
+                <div class="row">
+                  <button class="btn btn-danger">Ajouter au panier</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="cart" class="col-1">
+    <h4>Panier</h4>
+    <button type="button" class="cart-button">Commander</button>
+  </div>
+
+</div>
